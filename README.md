@@ -27,8 +27,8 @@ This is a basic version of a Compliance Companion app created using Flutter. The
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/compliance-companion-app.git
-    cd compliance-companion-app
+    git clone https://github.com/Jaycii2808/compliance-companion.git    
+    cd compliance-companion
     ```
 
 2. Fetch dependencies:
