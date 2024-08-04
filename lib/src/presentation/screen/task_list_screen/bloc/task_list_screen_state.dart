@@ -65,3 +65,10 @@ class CreateTaskSuccess extends TaskListState {
     required super.taskList,
   });
 }
+
+class CancelCreate extends TaskListState {
+  const CancelCreate({
+    required super.completedTask,
+    required super.taskList,
+  });
+}

@@ -53,3 +53,7 @@ class CreateTaskEvent extends TaskListEvent {
 
   const CreateTaskEvent(this.newTask);
 }
+
+class CancelCreateTaskEvent extends TaskListEvent {
+  const CancelCreateTaskEvent();
+}

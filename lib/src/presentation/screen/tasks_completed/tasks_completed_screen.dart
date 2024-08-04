@@ -26,6 +26,7 @@ class _TaskCompletedScreenState extends State<TaskCompletedScreen>
               return const Center(child: Text('Loading'));
             } else if (state is InitTaskListSuccess ||
                 state is MarkTaskCompletedSuccess ||
+                state is CancelCreate ||
                 state is CreateTaskSuccess) {
               return _buildListTask(state.completedTask);
             }

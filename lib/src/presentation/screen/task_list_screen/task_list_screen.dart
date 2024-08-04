@@ -60,6 +60,7 @@ class _TaskListScreenState extends State<TaskListScreen>
             } else if (state is InitTaskListSuccess ||
                 state is MarkTaskCompletedSuccess ||
                 state is RemoveTaskSuccess ||
+                state is CancelCreate ||
                 state is CreateTaskSuccess) {
               _list = state.taskList;
               return _buildTaskList();
@@ -122,6 +123,7 @@ class _TaskListScreenState extends State<TaskListScreen>
 
     return showDialog<TaskModel>(
       context: context,
+      barrierDismissible: false,
       builder: (context) {
         return AlertDialog(
           title: const Text('New Task'),
@@ -138,6 +140,7 @@ class _TaskListScreenState extends State<TaskListScreen>
                     labelText: 'Due Date',
                     hintText: 'YYYY-MM-DD',
                   ),
+                  readOnly: true,
                   onTap: () async {
                     final DateTime? pickedDate = await showDateTimePicker(
                       context: context,
@@ -171,6 +174,7 @@ class _TaskListScreenState extends State<TaskListScreen>
             TextButton(
               child: const Text('Cancel'),
               onPressed: () {
+                taskListBloc.add(const CancelCreateTaskEvent());
                 Navigator.of(context).pop();
               },
             ),

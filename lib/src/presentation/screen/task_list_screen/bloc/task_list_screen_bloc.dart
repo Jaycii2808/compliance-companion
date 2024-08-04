@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:compliance_companion/src/app/enum/task_status_enum.dart';
 import 'package:compliance_companion/src/data/mock_data/mock_data.dart';
@@ -17,6 +19,7 @@ class TaskListScreenBloc extends Bloc<TaskListEvent, TaskListState> {
     on<InitListTaskEvent>(_processInitList);
     on<ProcessCreateTaskEvent>(_processCreateTask);
     on<CreateTaskEvent>(_createTask);
+    on<CancelCreateTaskEvent>(_cancelCreateTask);
   }
 
   void _markTaskCompleted(MarkTaskComplete event, Emitter<TaskListState> emit) {
@@ -108,5 +111,18 @@ class TaskListScreenBloc extends Bloc<TaskListEvent, TaskListState> {
         taskList: newListTask,
       ),
     );
+  }
+
+  void _cancelCreateTask(
+      CancelCreateTaskEvent event, Emitter<TaskListState> emit) {
+    final currentState = state;
+    emit(Loading(
+      completedTask: currentState.completedTask,
+      taskList: currentState.taskList,
+    ));
+    emit(CancelCreate(
+      completedTask: currentState.completedTask,
+      taskList: currentState.taskList,
+    ));
   }
 }
