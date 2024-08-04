@@ -49,6 +49,12 @@ This is a basic version of a Compliance Companion app created using Flutter. The
     ```sh
     flutter run
     ```
+   
+## Flutter Version
+
+- **Flutter (Channel stable, 3.22.2, on macOS 14.5 23F79 darwin-x64, locale en-VN)**
+   - Flutter version 3.22.2
+   - Dart version 3.4.3
 
 ## Contributing
 
